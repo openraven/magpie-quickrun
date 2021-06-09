@@ -1,0 +1,48 @@
+layers:
+  enumerate:
+    type: origin
+    queue: default
+    plugins:
+      - magpie.aws.discovery
+  output:
+    type: terminal
+    dequeue: default
+    plugins:
+      - magpie.json
+      - magpie.persist
+fifos:
+  default:
+    type: local
+policies:
+  root: ~/.magpie/policies
+  repositories:
+    - https://github.com/openraven/aws-cis-1.2.git
+plugins:
+  magpie.aws.discovery:
+    enabled: true
+    config:
+      services:
+#      By default all AWS services are scanned. Uncomment the below lines to enable only select services.
+         - iam
+#         - s3
+#         - rds
+#         - ecs
+#         - vpc
+#         See the full list at https://github.com/openraven/magpie
+      regions:
+#        - aws-global
+       - us-east-2
+       - us-east-1
+       - us-west-1
+       - us-west-2
+  magpie.json:
+    enabled: true
+    config:
+  magpie.persist:
+    enabled: true
+    config:
+      hostname: pg
+      port: 5432
+      databaseName: magpie
+      user: magpie
+      password: magpie
