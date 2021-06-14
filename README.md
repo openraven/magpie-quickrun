@@ -25,15 +25,15 @@ If you're unsure what services to start with, `iam` is a great service with a lo
 ### Run!
 From the root of this repository:
 ```bash
-docker-compose build
-docker-compose up
+./magpie.sh
 ```
-This will fire up the Docker infrastructure and start your discovery and policy scans. Scan reports and violations will show up in the output.
-
-You only need to run the build step after you've modified `config.yaml` to ensure the Magpie image reflects your changes.
+This will fire shut down any previous Docker infrastructure, build a new Magpie image, and and start your discovery and policy scans. Scan reports and violations will show up in the output.
 
 
 ## Looking at the raw asset data
+
+You need to remove the `--exit-code-from magpie` from `magpie.sh` in order to utilize this feature. 
+
 Magpie Discovery is configured to store asset information in PostgreSQL, which is read by Magpie Policy for discoverying violations.  If you'd like to see the raw asset data in PostgreSQL:
 1. Open http://localhost:15432
 2. Login with user `admin@example.com` and password `magpie`

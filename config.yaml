@@ -23,20 +23,21 @@ plugins:
     config:
       services:
 #      By default all AWS services are scanned. Uncomment the below lines to enable only select services.
-         - iam
-#         - s3
-#         - rds
-#         - ecs
-#         - vpc
+      #  - iam
+      #  - ec2
+      #  - s3
+      #  - rds
+      #  - ecs
+      #  - vpc
 #         See the full list at https://github.com/openraven/magpie
       regions:
-#        - aws-global
-       - us-east-2
-       - us-east-1
-       - us-west-1
-       - us-west-2
+      #  - aws-global
+      #  - us-east-2
+      #  - us-east-1
+      #  - us-west-1
+      #  - us-west-2
   magpie.json:
-    enabled: true
+    enabled: false
     config:
   magpie.persist:
     enabled: true

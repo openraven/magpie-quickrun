@@ -7,6 +7,8 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${POSTGRES_PASSWORD}
+    logging:
+      driver: "none"      
   magpie:
     build: .
     environment:
@@ -16,8 +18,14 @@ services:
       - AWS_REGION=${AWS_REGION}
       - MAGPIE_DISCOVERY=${MAGPIE_DISCOVERY}
       - MAGPIE_POLICY=${MAGPIE_POLICY}
+    depends_on:
+      - "pg"      
   pg:
     image: postgres:13.3
+    ports:
+      - "25432:5432"    
+    logging:
+      driver: "none"      
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
