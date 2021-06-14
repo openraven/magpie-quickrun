@@ -1,4 +1,7 @@
 # Magpie Quickrun
+
+** This repo is a work in progress!  The instructions listed will not work until the main Magpie repository is updated. ** This will be announced in the Open Raven Research Slack channel.
+
 ## Run Open Raven's [Magpie CSPM](https://github.com/openraven/magpie) with only a few simple commands
 This quickrun sets up PostgreSQL, PGAdmin (optional), and Magpie packaged together and ready to start discovering assets and applying policies.
 
