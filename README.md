@@ -36,7 +36,7 @@ This will fire shut down any previous Docker infrastructure, build a new Magpie 
 You need to remove the `--exit-code-from magpie` from `magpie.sh` in order to utilize this feature. 
 
 Magpie Discovery is configured to store asset information in PostgreSQL, which is read by Magpie Policy for discoverying violations.  If you'd like to see the raw asset data in PostgreSQL:
-1. Open http://localhost:15432
+1. Open http://localhost:25432
 2. Login with user `admin@example.com` and password `magpie`
 3. Add a server in pgadmin with the following properties:
    - Host: pg
