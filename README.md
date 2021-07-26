@@ -30,7 +30,8 @@ From the root of this repository:
 ```
 This will fire shut down any previous Docker infrastructure, build a new Magpie image, and and start your discovery and policy scans. Scan reports and violations will show up in the output.
 
-
+### DMAP
+Magpie Quickrun also attempts to map data servcies (non-native) running on EC2 instances. This requires credentials that have Lambda management capabilities.  If you'd like to disable DMAP set `MAGPIE_DMAP=false` in your environment prior to running `./magpie.sh`
 ## Looking at the raw asset data
 
 You need to remove the `--exit-code-from magpie` from `magpie.sh` in order to utilize this feature. 
