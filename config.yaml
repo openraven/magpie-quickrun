@@ -4,6 +4,7 @@ layers:
     queue: default
     plugins:
       - magpie.aws.discovery
+      - magpie.gcp.discovery
   output:
     type: terminal
     dequeue: default
@@ -19,7 +20,7 @@ policies:
     - https://github.com/openraven/security-rules.git
 services:
   openraven.dmap.ml:
-    url: http://dmap-predictions:10234/dmap-ml/predict-annotated    
+    url: http://dmap-predictions:10234/dmap-ml/predict-annotated
 plugins:
   magpie.aws.discovery:
     enabled: true
@@ -39,9 +40,22 @@ plugins:
       #  - us-east-1
       #  - us-west-1
       #  - us-west-2
+      ignoredRegions:
+        - fips.*
+        - us-gov.*
+  magpie.gcp.discovery:
+    enabled: false
+    config:
+      services:
   magpie.json:
     enabled: true
     config:
+  magpie.policy.output.json:
+    enabled: false
+  magpie.policy.output.csv:
+    enabled: false
+  magpie.policy.output.text:
+    enabled: true
   magpie.persist:
     enabled: true
     config:

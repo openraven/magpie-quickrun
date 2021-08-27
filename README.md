@@ -14,11 +14,14 @@ This quick-run does not support advanced configurations (distributed discovery, 
 
 ## Running Magpie
 ### Credentials
+#### AWS
 While Magpie uses the AWS CLI's credential loading pattern, this quickrun uses *only* environmental variables for simplicity.  This means you'll need to ensure the following values are set:
 - AWS_SECRET_ACCESS_KEY
 - AWS_ACCESS_KEY_ID
 - AWS_REGION (`us-east-1` is a fine choice)
 - AWS_SESSION_TOKEN (If using STS)
+#### GCP
+Replace the content of *gcp-credentials.json* file by the one downloaded from the target GCP Account being discovered
 
 ### Configuration
 Edit `config.yaml` in the root of this project to your liking.  By default, Magpie will discover *all* supported AWS services in all regions. If you have a large infrastructure the scan could take hours.
